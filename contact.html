@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Specialists</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Re-use main styles from index.html (or link to external style.css) */
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Merriweather', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background-color: var(--secondary-color); color: var(--primary-color); line-height: 1.6; }
+        a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #555555; }
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; }
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+
+        /* --- Navigation Bar (Simple) --- */
+        header {
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        /* --- Lawyer Grid Styling --- */
+        .lawyer-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .lawyer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .lawyer-card {
+            border: 2px solid var(--primary-color);
+            padding: 30px;
+            text-align: center;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .lawyer-card:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        .lawyer-card:hover a, .lawyer-card:hover h3 {
+            color: var(--secondary-color);
+        }
+        .lawyer-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .lawyer-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .lawyer-card .specialty {
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .lawyer-card p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .contact-info {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #777; /* Subtle divider */
+        }
+        
+        /* --- Footer (Copy-Pasted from index.html for quick setup) --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 40px 5%;
+            text-align: center;
+        }
+        footer .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 15px;
+            font-family: var(--font-heading);
+        }
+        footer p { margin-top: 20px; font-size: 0.8rem; opacity: 0.7; }
+        
+        /* Media Query */
+        @media (max-width: 600px) {
+            .lawyer-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Law Firm</a>
+        <a href="index.html#services">← Back to Services</a>
+    </header>
+
+    <main>
+        <section class="lawyer-section">
+            <h2 id="issue-title">Connect with Specialized Legal Professionals</h2>
+            <p style="text-align: center; font-size: 1.1rem;">
+                The following attorneys have been matched to your specialization request. Review their profiles and contact them directly to begin your consultation.
+            </p>
+
+            <div class="lawyer-grid">
+                
+                <div class="lawyer-card">
+                    <img src="https://placehold.co/150x150/000000/ffffff?text=J.F." alt="James Francis Profile" loading="lazy">
+                    <h3>James Francis</h3>
+                    <p class="specialty">Corporate Litigation Specialist</p>
+                    <p>A decade of experience representing mid-market corporations in complex litigation and dispute resolution.</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:Jamesfrancis@outlook.com">Jamesfrancis@outlook.com</a></p>
+                        <p><strong>Phone:</strong> +1 (585) 410-8673</p>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <img src="https://placehold.co/150x150/000000/ffffff?text=B.J." alt="Barry Jones Profile" loading="lazy">
+                    <h3>Barry Jones</h3>
+                    <p class="specialty">Real Estate & Family Law Mediator</p>
+                    <p>Dual-certified in property law and sensitive family dispute mediation, focusing on equitable settlements.</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:Barryjones20252025@outlook.com">Barryjones20252025@outlook.com</a></p>
+                        <p><strong>Phone:</strong> +1 (706) 580-9853</p>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <img src="https://placehold.co/150x150/000000/ffffff?text=G.T." alt="Grey Turk Profile" loading="lazy">
+                    <h3>Grey Turk</h3>
+                    <p class="specialty">High-Stakes Criminal Defense</p>
+                    <p>Highly respected defense attorney with a track record of successful outcomes in complex criminal defense cases.</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:Gretturk@gmail.com">Gretturk@gmail.com</a></p>
+                        <p><strong>Phone:</strong> *Available Upon Request*</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Home</a> | <a href="#">About Law Firm</a> | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </div>
+        <p>
+            &copy; 2025 Law Firm. All rights reserved. <br>
+           Barry Jones Law Firm <br>* Barryjones20252025@outlook.com
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const issue = urlParams.get('issue');
+            const titleElement = document.getElementById('issue-title');
+
+            if (issue) {
+                // Simple function to capitalize and replace hyphens
+                const formatIssue = (str) => {
+                    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                };
+                
+                // Set the dynamic title
+                titleElement.textContent = `Connect with ${formatIssue(issue)} Specialists`;
+            }
+        });
+    </script>
+</body>
+</html>

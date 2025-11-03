@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Firm - Your Legal Connection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- General Reset & Styling --- */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color: #ffffff; /* White */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Merriweather', serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            transition: opacity 0.5s ease-in-out;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #555555; /* Subtle grey on hover */
+        }
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Loader Styling --- */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .loader-icon {
+            font-size: 4rem;
+            animation: pulse 1.5s infinite;
+            color: var(--primary-color);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        #loader-text {
+            font-family: var(--font-heading);
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            padding-top: 150px;
+            padding-bottom: 50px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .hero p.tagline {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .hero-img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: url('img.jpg') no-repeat center center/cover; /* Placeholder */
+            margin-bottom: 40px;
+            border: 1px solid var(--primary-color);
+            opacity: 0; /* Animated in by JS */
+        }
+        .cta-button {
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .cta-button:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        /* --- Service Categories --- */
+        .categories h2, .advantage h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        .category-item:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        .category-item:hover a {
+            color: var(--secondary-color);
+        }
+        .category-item .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color); /* Icon color */
+        }
+        .category-item:hover .icon {
+            color: var(--secondary-color); /* Icon color on hover */
+        }
+        .category-item a {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- Advantage Section --- */
+        .advantage-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        .advantage-item {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border-left: 1px solid var(--primary-color);
+            padding-left: 20px;
+        }
+        .advantage-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .advantage-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 40px 5%;
+            text-align: center;
+        }
+        footer .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 15px;
+            font-family: var(--font-heading);
+        }
+        footer .footer-links a:hover {
+            color: #aaaaaa;
+        }
+        footer p {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p.tagline {
+                font-size: 1.2rem;
+            }
+            .advantage-grid {
+                flex-direction: column;
+            }
+            .advantage-item {
+                border-left: none;
+                border-bottom: 1px solid var(--primary-color);
+                padding-bottom: 20px;
+            }
+            .advantage-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* --- Animation Classes for Post-Load Effect --- */
+        .loaded-content {
+            opacity: 1 !important;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div class="loader-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div id="loader-text">Law Firm: Connecting Justice...</div>
+    </div>
+
+    <main id="main-content" style="opacity: 0;">
+
+        <section class="hero fade-in">
+            <h1>Law Firm</h1>
+            <p class="tagline">Navigate the Complexities of Law. Find Your Advocate Today.</p>
+            
+            <div class="hero-img fade-in" style="animation-delay: 0.5s;"></div> 
+            
+            <p style="max-width: 700px; margin-bottom: 40px; font-size: 1.1rem;">
+                In the modern legal landscape, finding the right expertise is crucial. 
+                <span style="font-weight: bold;">Law Firm</span> is the dedicated platform connecting 
+                individuals and businesses directly with vetted, specialized legal professionals. 
+                Your search for justice begins here.
+            </p>
+
+            <a href="#services" class="cta-button fade-in" style="animation-delay: 1s;">Find a Specialist</a>
+        </section>
+
+        <section class="categories" id="services">
+            <h2>Our Areas of Specialization</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Select an area below to connect with an attorney who focuses exclusively on your specific challenge.</p>
+            <div class="categories-grid">
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-handshake"></i></div> <a href="contact.html?issue=corporate">Corporate & Commercial Law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-gavel"></i></div> <a href="contact.html?issue=litigation">Litigation & Dispute Resolution</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-user-tie"></i></div> <a href="contact.html?issue=employment">Employment & Labor Law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div> <a href="contact.html?issue=ip">Intellectual Property (IP)</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-building"></i></div> <a href="contact.html?issue=realestate">Real Estate Law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-people-arrows"></i></div> <a href="contact.html?issue=family">Family Law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div> <a href="contact.html?issue=criminal">Criminal Defense</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-scroll"></i></div> <a href="contact.html?issue=estate">Estate Planning & Probate</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-sack-dollar"></i></div> <a href="contact.html?issue=tax">Tax law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-plane-departure"></i></div> <a href="contact.html?issue=immigration">Immigration Law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-chart-line-down"></i></div> <a href="contact.html?issue=bankruptcy">Bankruptcy & Insolvency</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-car-crash"></i></div> <a href="contact.html?issue=injury">Personal injury</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-hospital"></i></div> <a href="contact.html?issue=health">Health care law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-tree"></i></div> <a href="contact.html?issue=environmental">Environmental law</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-user-secret"></i></div> <a href="contact.html?issue=tech">Technology and cybersecurity</a></div>
+                <div class="category-item"><div class="icon"><i class="fa-solid fa-star"></i></div> <a href="contact.html?issue=niche">Specialized or Niche areas</a></div>
+            </div>
+        </section>
+
+        <section class="advantage">
+            <h2>The Law Firm Advantage</h2>
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Vetted Professionals</h3>
+                    <p>Every lawyer on our platform is thoroughly vetted for experience, professional standing, and successful case history.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Specialized Focus</h3>
+                    <p>We connect you with attorneys who *specialize* in your exact legal challenge, ensuring expert guidance from day one.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                    <h3>Transparent Connection</h3>
+                    <p>Direct, clear, and secure communication. We facilitate the initial connection; you control the ongoing relationship.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Home</a> |
+            <a href="#">About Law Firm</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>
+             &copy; 2025 Law Firm. All rights reserved. <br>
+           Barry Jones Law Firm <br>* Barryjones20252025@outlook.com
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loaderWrapper = document.getElementById('loader-wrapper');
+            const mainContent = document.getElementById('main-content');
+            
+            // Hide the loader and show the content after 2 seconds
+            setTimeout(() => {
+                loaderWrapper.style.opacity = 0;
+                mainContent.style.opacity = 1;
+                mainContent.style.visibility = 'visible'; // Ensure content is visible
+                
+                // Set the display property to none after the transition to free up clicks
+                setTimeout(() => {
+                    loaderWrapper.style.display = 'none';
+                }, 500); // Matches the opacity transition time
+
+                // Apply fade-in animation to hero content
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    el.style.animationDelay = `${0.3 * index}s`; // Staggered animation
+                    el.classList.add('loaded-content');
+                });
+
+            }, 2000); // 2 second delay for the law type loader
+        });
+    </script>
+
+</body>
+</html>
