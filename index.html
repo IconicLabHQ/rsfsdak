@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Law Firm - Your Legal Connection</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* --- General Reset & Styling --- */
         :root {
@@ -58,10 +57,10 @@
             align-items: center;
             z-index: 1000;
         }
-        .loader-icon {
+        .scales {
+            /* Simple Text-based Gavel/Scales Icon for demonstration */
             font-size: 4rem;
             animation: pulse 1.5s infinite;
-            color: var(--primary-color);
         }
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
@@ -72,7 +71,6 @@
             font-family: var(--font-heading);
             margin-top: 20px;
             font-size: 1.5rem;
-            color: var(--primary-color);
         }
 
         /* --- Hero Section --- */
@@ -152,10 +150,7 @@
         .category-item .icon {
             font-size: 3rem;
             margin-bottom: 15px;
-            color: var(--primary-color); /* Icon color */
-        }
-        .category-item:hover .icon {
-            color: var(--secondary-color); /* Icon color on hover */
+            /* Placeholder icons. Use Font Awesome or similar for production */
         }
         .category-item a {
             font-family: var(--font-heading);
@@ -175,11 +170,6 @@
             text-align: center;
             border-left: 1px solid var(--primary-color);
             padding-left: 20px;
-        }
-        .advantage-item .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
         }
         .advantage-item h3 {
             margin-bottom: 15px;
@@ -244,8 +234,7 @@
 <body>
 
     <div id="loader-wrapper">
-        <div class="loader-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        <div id="loader-text">Law Firm: Connecting Justice...</div>
+        <div class="scales">⚖️</div> <div id="loader-text">Law Firm: Connecting Justice...</div>
     </div>
 
     <main id="main-content" style="opacity: 0;">
@@ -270,22 +259,22 @@
             <h2>Our Areas of Specialization</h2>
             <p style="text-align: center; margin-bottom: 30px;">Select an area below to connect with an attorney who focuses exclusively on your specific challenge.</p>
             <div class="categories-grid">
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-handshake"></i></div> <a href="contact.html?issue=corporate">Corporate & Commercial Law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-gavel"></i></div> <a href="contact.html?issue=litigation">Litigation & Dispute Resolution</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-user-tie"></i></div> <a href="contact.html?issue=employment">Employment & Labor Law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div> <a href="contact.html?issue=ip">Intellectual Property (IP)</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-building"></i></div> <a href="contact.html?issue=realestate">Real Estate Law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-people-arrows"></i></div> <a href="contact.html?issue=family">Family Law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div> <a href="contact.html?issue=criminal">Criminal Defense</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-scroll"></i></div> <a href="contact.html?issue=estate">Estate Planning & Probate</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-sack-dollar"></i></div> <a href="contact.html?issue=tax">Tax law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-plane-departure"></i></div> <a href="contact.html?issue=immigration">Immigration Law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-chart-line-down"></i></div> <a href="contact.html?issue=bankruptcy">Bankruptcy & Insolvency</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-car-crash"></i></div> <a href="contact.html?issue=injury">Personal injury</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-hospital"></i></div> <a href="contact.html?issue=health">Health care law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-tree"></i></div> <a href="contact.html?issue=environmental">Environmental law</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-user-secret"></i></div> <a href="contact.html?issue=tech">Technology and cybersecurity</a></div>
-                <div class="category-item"><div class="icon"><i class="fa-solid fa-star"></i></div> <a href="contact.html?issue=niche">Specialized or Niche areas</a></div>
+                <div class="category-item"><div class="icon">💼</div> <a href="contact.html?issue=corporate">Corporate & Commercial Law</a></div>
+                <div class="category-item"><div class="icon">⚖️</div> <a href="contact.html?issue=litigation">Litigation & Dispute Resolution</a></div>
+                <div class="category-item"><div class="icon">🤝</div> <a href="contact.html?issue=employment">Employment & Labor Law</a></div>
+                <div class="category-item"><div class="icon">©️</div> <a href="contact.html?issue=ip">Intellectual Property (IP)</a></div>
+                <div class="category-item"><div class="icon">🏘️</div> <a href="contact.html?issue=realestate">Real Estate Law</a></div>
+                <div class="category-item"><div class="icon">👨‍👩‍👧‍👦</div> <a href="contact.html?issue=family">Family Law</a></div>
+                <div class="category-item"><div class="icon">🛡️</div> <a href="contact.html?issue=criminal">Criminal Defense</a></div>
+                <div class="category-item"><div class="icon">📜</div> <a href="contact.html?issue=estate">Estate Planning & Probate</a></div>
+                <div class="category-item"><div class="icon">💰</div> <a href="contact.html?issue=tax">Tax law</a></div>
+                <div class="category-item"><div class="icon">✈️</div> <a href="contact.html?issue=immigration">Immigration Law</a></div>
+                <div class="category-item"><div class="icon">📉</div> <a href="contact.html?issue=bankruptcy">Bankruptcy & Insolvency</a></div>
+                <div class="category-item"><div class="icon">🩹</div> <a href="contact.html?issue=injury">Personal injury</a></div>
+                <div class="category-item"><div class="icon">⚕️</div> <a href="contact.html?issue=health">Health care law</a></div>
+                <div class="category-item"><div class="icon">🌳</div> <a href="contact.html?issue=environmental">Environmental law</a></div>
+                <div class="category-item"><div class="icon">💻</div> <a href="contact.html?issue=tech">Technology and cybersecurity</a></div>
+                <div class="category-item"><div class="icon">⭐</div> <a href="contact.html?issue=niche">Specialized or Niche areas</a></div>
             </div>
         </section>
 
@@ -293,17 +282,17 @@
             <h2>The Law Firm Advantage</h2>
             <div class="advantage-grid">
                 <div class="advantage-item">
-                    <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="icon">🔍</div>
                     <h3>Vetted Professionals</h3>
                     <p>Every lawyer on our platform is thoroughly vetted for experience, professional standing, and successful case history.</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="icon">🎯</div>
                     <h3>Specialized Focus</h3>
                     <p>We connect you with attorneys who *specialize* in your exact legal challenge, ensuring expert guidance from day one.</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                    <div class="icon">🤝</div>
                     <h3>Transparent Connection</h3>
                     <p>Direct, clear, and secure communication. We facilitate the initial connection; you control the ongoing relationship.</p>
                 </div>
@@ -320,7 +309,7 @@
             <a href="#">Privacy Policy</a>
         </div>
         <p>
-             &copy; 2025 Law Firm. All rights reserved. <br>
+            &copy; 2025 Law Firm. All rights reserved. <br>
            Barry Jones Law Firm <br>* Barryjones20252025@outlook.com
         </p>
     </footer>
